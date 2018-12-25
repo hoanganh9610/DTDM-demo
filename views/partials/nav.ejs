@@ -1,0 +1,91 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-5">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="mainmenu pull-left">
+        <ul class="nav navbar-nav collapse navbar-collapse">
+          <li><a href="/" class="active">Home</a></li>
+          <% if  (typeproduct) {%>
+          <li class="dropdown"><a href="#">
+              <%= __('menu')%><i class="fa fa-angle-down"></i></a>
+            <ul role="menu" class="sub-menu">
+              <% for(var i = 0; i < typeproduct.length; i++ ){%>
+              <li><a href="danhsach?type=<%= typeproduct[i].type %>">
+                  <%= __(typeproduct[i].type)%></a></li>
+              <%}%>
+            </ul>
+          </li>
+          <% } %>
+          <li class="dropdown"><a href="#">My Blog<i class="fa fa-angle-down"></i></a></li>
+          <li><a href="#contact">
+              <%= __('Contact')%></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-ms-7">
+      <form action="/searchProduct">
+        <select required name="tproduct" class="btn" style="position: absolute; margin-left: 10%; width: 170px;">
+            <option value="all" selected="">
+              <%= __('All')%>
+            </option>
+            <option value="id">ID</option>
+            <option value="name">
+              <%= __('Name')%>
+            </option>
+            <optgroup label="Price">
+              <option value="price_1">
+                < 100.000đ</option> <option value="price_11">100.000 - 500.000đ
+              </option>
+              <option value="price_51">500.000 - 1.000.000đ</option>
+              <option value="price_101">1.000.000 - 2.000.000đ</option>
+              <option value="price_201"> > 2.000.000đ</option>
+            </optgroup>
+
+            <optgroup label="Type">
+              <option value="mebe">
+                <%= __('mebe')%>
+              </option>
+              <option value="xe">
+                <%= __('xe')%>
+              </option>
+              <option value="dientu">
+                <%= __('dientu')%>
+              </option>
+              <option value="fashion">
+                <%= __('fashion')%>
+              </option>
+              <option value="giadung">
+                <%= __('giadung')%>
+              </option>
+              <option value="thucung">
+                <%= __('thucung')%>
+              </option>
+            </optgroup>
+          </select>
+        <div class="col-sm-1">
+          
+        </div>
+        <div class="col-sm-4">
+
+          <div class="search_box pull-right"style="width: 150px;">
+            <input type="text" placeholder="<%= __('Search')%>.." name="search" />
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <a href="/searchnangcao" type="button" class="btn btn-default">
+            <%= __('tiemkiemNC')%></a>
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+</div>
